@@ -10,5 +10,6 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "juststeveking/laravel-transporter": "^1.2"
-    }
+    },
+    "minimum-stability": "stable"
 }
