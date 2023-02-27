@@ -1,0 +1,14 @@
+{
+    "name": "northern-estate-agencies/transporter-foundations",
+    "type": "library",
+    "require": {
+        "laravel/framework": "^9.19",
+        "laravel/sanctum": "^3.0",
+        "juststeveking/laravel-transporter": "^1.2"
+    },
+    "require-dev": {
+        "laravel/framework": "^9.19",
+        "laravel/sanctum": "^3.0",
+        "juststeveking/laravel-transporter": "^1.2"
+    }
+}
