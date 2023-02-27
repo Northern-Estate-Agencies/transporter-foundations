@@ -11,5 +11,10 @@
         "laravel/sanctum": "^3.0",
         "juststeveking/laravel-transporter": "^1.2"
     },
+    "autoload": {
+        "psr-4": {
+            "TransporterFoundations\\": "src/"
+        }
+    },
     "minimum-stability": "stable"
 }
