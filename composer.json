@@ -10,12 +10,18 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "juststeveking/laravel-transporter": "^1.2",
-        "laravel/pint": "^1.6"
+        "laravel/pint": "^1.6",
+        "pestphp/pest": "^1.22"
     },
     "autoload": {
         "psr-4": {
             "TransporterFoundations\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
