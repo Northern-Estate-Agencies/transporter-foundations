@@ -4,7 +4,6 @@ namespace TransporterFoundations\Transporter\DataTransferObjects;
 
 class ContactFromRequestData
 {
-
     public function __construct(
         public string $id,
         public string $title,
@@ -19,23 +18,20 @@ class ContactFromRequestData
     /**
      * @param  array<mixed>  $data
      */
-    public static function fromContactListPayload(array $data):?self
+    public static function fromContactListPayload(array $data): ?self
     {
-
-        if(!is_array( $data['_embedded'])){
+        if (! is_array($data['_embedded'])) {
             return null;
         }
 
         $mainPayload = $data['_embedded'][0] ?? null;
 
-        if(!$mainPayload){
+        if (! $mainPayload) {
             return null;
         }
 
         return self::fromPayload($mainPayload);
-
     }
-
 
     /**
      * @param  array<string, array<string, string>|string>  $data
@@ -49,7 +45,7 @@ class ContactFromRequestData
             surname: strval($data['surname']),
             email: strval($data['email']),
             eTag: strval($data['_eTag']),
-            consentsToMarketing : ($data['marketingConsent'] === "given")
+            consentsToMarketing : ($data['marketingConsent'] === 'given')
         );
     }
 }
