@@ -4,9 +4,7 @@ namespace TransporterFoundations\Transporter\DataTransferObjects;
 
 class ContactFromRequestData
 {
-    /**
-     * @param  array<mixed>  $metadata
-     */
+
     public function __construct(
         public string $id,
         public string $title,
