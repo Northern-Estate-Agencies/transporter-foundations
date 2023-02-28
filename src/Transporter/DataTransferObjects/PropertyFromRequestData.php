@@ -17,7 +17,7 @@ class PropertyFromRequestData
     /**
      * @param  mixed  $data
      */
-    public static function fromContactListPayload($data): ?self
+    public static function fromPropertyListPayload($data): ?self
     {
         if (! is_array($data)) {
             return null;
