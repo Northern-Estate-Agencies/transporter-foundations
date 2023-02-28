@@ -16,10 +16,14 @@ class ContactFromRequestData
     }
 
     /**
-     * @param  array<mixed>  $data
+     * @param  mixed  $data
      */
-    public static function fromContactListPayload(array $data): ?self
+    public static function fromContactListPayload($data): ?self
     {
+        if (! is_array($data)) {
+            return null;
+        }
+
         if (! is_array($data['_embedded'])) {
             return null;
         }
