@@ -10,7 +10,8 @@ class PropertyFromRequestData
     public function __construct(
         public string $id,
         public string $marketingMode,
-        public array $address
+        public array $address,
+        public string $eTag,
     ) {
     }
 
@@ -45,6 +46,7 @@ class PropertyFromRequestData
             id: strval($data['id']),
             marketingMode: strval($data['marketingMode']),
             address: $data['address'],
+            eTag: strval($data['_eTag']),
         );
     }
 }
