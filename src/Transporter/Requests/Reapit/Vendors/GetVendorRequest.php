@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Transporter\Requests\Reapit\Vendors;
+namespace TransporterFoundations\Transporter\Requests\Reapit\Vendors;
 
 use TransporterFoundations\Transporter\Requests\Reapit\ReapitRequest;
 
