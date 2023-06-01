@@ -7,6 +7,7 @@ namespace TransporterFoundations\Transporter\Requests\Reapit;
 use Exception;
 use Illuminate\Http\Client\PendingRequest;
 use JustSteveKing\Transporter\Request;
+use Illuminate\Support\Facades\Config;
 
 class ReapitRequest extends Request
 {
@@ -54,7 +55,7 @@ class ReapitRequest extends Request
     {
         if ($this->authToken === '') {
             $token = AuthenticationRequest::build()->withData([
-                'client_id' => config('services.reapit.client_id'),
+                'client_id' => Config::get('services.reapit.client_id'),
                 'grant_type' => 'client_credentials',
             ])->send()->collect()->get('access_token');
             if ($token) {
