@@ -21,12 +21,14 @@ it('can send a request to list journal entries and get a successful response wit
 
 it('can create a journal entry', function () {
 
+    $faker = fake('en_GB');
+
     $journalEntry = [
         "typeId" => "MI",
         "propertyId" => "OXF190022",
         "associatedType" => "applicant",
         "associatedId" => "OXF190001",
-        "description" => "Mr John Smith contacted us via live chat regarding 62 Test Road",
+        "description" => $faker->text(),
         "negotiatorId" => "JAS"
     ];
     

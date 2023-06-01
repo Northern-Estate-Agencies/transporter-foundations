@@ -28,8 +28,6 @@ it('can get a single landlord', function () {
 });
 
 it('can create a landlord', function () {
-
-    $faker = fake('en_GB');
     
     $landlord = [
         "active" => true,

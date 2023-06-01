@@ -38,12 +38,12 @@ it('can create an applicant', function () {
       "marketingMode"=> "buying",
       "currency"=> "GBP",
       "active"=> true,
-      "notes"=> "Looking to move his mother back into the area",
+      "notes"=> $faker->text(),
       "statusId"=> null,
       "sellingStatus"=> "exchanged",
       "sellingPosition"=> "renting",
-      "lastCall"=> "2019-11-12",
-      "nextCall"=> "2022-12-29",
+      "lastCall"=> $faker->date(),
+      "nextCall"=> $faker->date(),
       "departmentId"=> "G",
       "solicitorId"=> "OXF18000012",
       "potentialClient"=> false,
@@ -57,7 +57,7 @@ it('can create an applicant', function () {
           "associatedId" => "OXF20000001",
           "associatedType" => "contact"
         ]
-        ];
+    ];
     
     $request = CreateApplicantRequest::fake()->withData($applicant)->send();
 
@@ -67,27 +67,33 @@ it('can create an applicant', function () {
 
 it('can update an applicant', function () {
 
+    $faker = fake('en_GB');
     $fakeId = 'RPT20000001';
 
     $applicant = [
-        "marketingMode"=> "buying",
-        "currency"=> "GBP",
-        "active"=> true,
-        "notes"=> "Looking to move his mother back into the area",
-        "statusId"=> null,
-        "sellingStatus"=> "exchanged",
-        "sellingPosition"=> "renting",
-        "lastCall"=> "2019-11-12",
-        "nextCall"=> "2022-12-29",
-        "departmentId"=> "G",
-        "solicitorId"=> "OXF18000012",
-        "potentialClient"=> false,
-        "type"=> [
-          "house",
-          "maisonette",
-          "cottage"
-        ],
-      ];
+      "marketingMode"=> "buying",
+      "currency"=> "GBP",
+      "active"=> true,
+      "notes"=> $faker->text(),
+      "statusId"=> null,
+      "sellingStatus"=> "exchanged",
+      "sellingPosition"=> "renting",
+      "lastCall"=> $faker->date(),
+      "nextCall"=> $faker->date(),
+      "departmentId"=> "G",
+      "solicitorId"=> "OXF18000012",
+      "potentialClient"=> false,
+      "type"=> [
+        "house",
+        "maisonette",
+        "cottage"
+      ],
+      "related" =>
+        [
+          "associatedId" => "OXF20000001",
+          "associatedType" => "contact"
+        ]
+    ];
 
     $request = UpdateApplicantRequest::fake()->withId($fakeId)->withData($applicant)->send();
 
