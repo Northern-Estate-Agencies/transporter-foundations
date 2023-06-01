@@ -8,7 +8,8 @@
     },
     "require-dev": {
         "laravel/sanctum": "^3.0",
-        "laravel/pint": "^1.6"
+        "laravel/pint": "^1.6",
+        "pestphp/pest": "^2.6"
     },
     "autoload": {
         "psr-4": {
