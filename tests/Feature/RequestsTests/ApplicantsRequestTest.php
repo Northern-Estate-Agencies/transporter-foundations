@@ -7,9 +7,6 @@ use TransporterFoundations\Transporter\Requests\Reapit\Applicants\ListApplicants
 //use function Pest\Laravel\mock;
 //use Mockery;
 
-
-
-
 it('can send a request to list applicants and get a successful response', function () {
     $reapitRequest = ListApplicantsRequest::build();
     expect($reapitRequest->send()->successful())->toBeTrue();

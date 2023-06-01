@@ -19,8 +19,6 @@ use Tests\TestCase;
 
 uses()->beforeAll(function () {
 
-    dd("Here",env('REAPIT_CLIENT_ID'));
-
     Config::shouldReceive('get')
             ->with('services.reapit.base_url')->andReturn('https://platform.reapit.cloud/');
         
