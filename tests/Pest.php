@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
+use Tests\TestCase;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -11,7 +14,26 @@
 |
 */
 
-// uses(Tests\TestCase::class)->in('Feature');
+//uses(Tests\TestCase::class)->in('Feature');
+
+
+uses()->beforeAll(function () {
+
+    dd("Here",env('REAPIT_CLIENT_ID'));
+
+    Config::shouldReceive('get')
+            ->with('services.reapit.base_url')->andReturn('https://platform.reapit.cloud/');
+        
+    Config::shouldReceive('get')
+        ->with('services.reapit.client_id')->andReturn('2hv94b3bgkgaq65frp8a224vlc');
+    
+    Config::shouldReceive('get')
+        ->with('services.reapit.client_secret')->andReturn('1cf253dd55o0biqtbgn6qkk1munkv982pu5dq31j2ggi9bqpcmsc');
+    
+    Config::shouldReceive('get')
+            ->with('services.reapit.authentication_url')->andReturn('https://connect.reapit.cloud/');
+
+})->in(__DIR__);
 
 /*
 |--------------------------------------------------------------------------

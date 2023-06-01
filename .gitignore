@@ -17,4 +17,4 @@ yarn-error.log
 /.idea
 /.vscode
 /app/Console/Commands/TestCommand.php
-/tests
+/tests/Pest.php
