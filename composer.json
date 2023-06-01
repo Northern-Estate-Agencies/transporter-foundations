@@ -4,11 +4,16 @@
     "require": {
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.0",
-        "juststeveking/laravel-transporter": "^2.0"
+        "juststeveking/laravel-transporter": "^2.0",
+        "fakerphp/faker": "^1.22",
+        "guzzlehttp/psr7": "^2.5",
+        "guzzlehttp/guzzle": "^7.7"
     },
     "require-dev": {
         "laravel/sanctum": "^3.0",
-        "laravel/pint": "^1.6"
+        "laravel/pint": "^1.6",
+        "pestphp/pest": "^2.6",
+        "mockery/mockery": "^1.5"
     },
     "autoload": {
         "psr-4": {

@@ -3,7 +3,7 @@
 use TransporterFoundations\Transporter\Requests\Reapit\Contacts\CreateContactRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Contacts\GetContactRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Contacts\ListContactsRequest;
-
+use TransporterFoundations\Transporter\Requests\Reapit\Contacts\UpdateContactRequest;
 
 it('can send a request to list contacts and get a successful response', function () {
     $reapitRequest = ListContactsRequest::build();
@@ -28,23 +28,52 @@ it('can get a single contact', function () {
 });
 
 it('can create a contact', function () {
+    
+    $faker = fake('en_GB');
+    
     $contact = [
-        'title' => 'Mr',
-        'forename' => 'E Z',
-        'surname' => 'Neag',
-        'dateOfBirth' => '1980-01-01',
+        'title' => $faker->title(),
+        'forename' => $faker->firstname(),
+        'surname' => $faker->lastname(),
+        'dateOfBirth' => $faker->date(),
         'active' => true,
         'marketingConsent' => 'NotAsked',
         'identityCheck' => 'NotAsked',
         'source' => 'NotAsked',
-        'homePhone' => '01234567890',
-        'workPhone' => '01234567890',
-        'mobilePhone' => '01234567890',
-        'email' => 'neag101@test.com'
+        'homePhone' => $faker->phoneNumber(),
+        'workPhone' => $faker->phoneNumber(),
+        'mobilePhone' => $faker->phoneNumber(),
+        'email' => $faker->email(),
+    ];
+    $request = CreateContactRequest::fake()->withData($contact)->send();
+
+    expect($request->successful())->toBeTrue();
+
+   });
+
+   it('can update a contact', function () {
+
+    $faker = fake('en_GB');
+
+    $fakeId = 'RPT20000001';
+
+    $contact = [
+        'title' => $faker->title(),
+        'forename' => $faker->firstname(),
+        'surname' => $faker->lastname(),
+        'dateOfBirth' => $faker->date(),
+        'active' => true,
+        'marketingConsent' => 'NotAsked',
+        'identityCheck' => 'NotAsked',
+        'source' => 'NotAsked',
+        'homePhone' => $faker->phoneNumber(),
+        'workPhone' => $faker->phoneNumber(),
+        'mobilePhone' => $faker->phoneNumber(),
+        'email' => $faker->email(),
     ];
 
 
-    $request = CreateContactRequest::fake()->withData($contact)->send();
+    $request = UpdateContactRequest::fake()->withId($fakeId)->withData($contact)->send();
 
     expect($request->successful())->toBeTrue();
 
