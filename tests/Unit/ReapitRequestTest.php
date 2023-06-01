@@ -28,5 +28,6 @@ it('can send a reapit request and get a successful response', function () {
     $reapitRequest = ListApplicantsRequest::build();
 
     expect($reapitRequest->send()->successful())->toBeTrue();
+    //test
 
 });
