@@ -6,7 +6,7 @@ namespace TransporterFoundations\Transporter\Requests\Reapit;
 
 use Illuminate\Http\Client\PendingRequest;
 use JustSteveKing\Transporter\Request;
-
+use Illuminate\Support\Facades\Config;
 class AuthenticationRequest extends Request
 {
     protected string $method = 'POST';
@@ -19,7 +19,7 @@ class AuthenticationRequest extends Request
     {
         $request->withHeaders(
             [
-                'Authorization' => 'Basic '.base64_encode(config('services.reapit.client_id').':'.config('services.reapit.client_secret')),
+                'Authorization' => 'Basic '.base64_encode(Config::get('services.reapit.client_id').':'.Config::get('services.reapit.client_secret')),
             ]
         )->asForm();
     }
