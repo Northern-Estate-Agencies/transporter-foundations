@@ -1,11 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
-use Tests\ConfigMocker;
 use TransporterFoundations\Transporter\Requests\Reapit\Applicants\GetApplicantRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Applicants\ListApplicantsRequest;
-//use function Pest\Laravel\mock;
-//use Mockery;
 
 it('can send a request to list applicants and get a successful response', function () {
     $reapitRequest = ListApplicantsRequest::build();

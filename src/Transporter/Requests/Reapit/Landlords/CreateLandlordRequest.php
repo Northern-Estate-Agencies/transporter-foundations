@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TransporterFoundations\Transporter\Requests\Reapit\Contacts;
+namespace TransporterFoundations\Transporter\Requests\Reapit\Landlords;
 
 use TransporterFoundations\Transporter\Requests\Reapit\ReapitRequest;
 

@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Config;
-use TransporterFoundations\Transporter\Requests\Reapit\Applicants\ListApplicantsRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Properties\GetPropertyRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Properties\ListPropertiesRequest;
 
