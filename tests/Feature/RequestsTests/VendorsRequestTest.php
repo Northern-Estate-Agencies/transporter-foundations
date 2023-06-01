@@ -2,6 +2,7 @@
 
 use TransporterFoundations\Transporter\Requests\Reapit\Vendors\ListVendorsRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Vendors\GetVendorRequest;
+use TransporterFoundations\Transporter\Requests\Reapit\Vendors\UpdateVendorRequest;
 
 //use function Pest\Laravel\mock;
 //use Mockery;
@@ -26,4 +27,31 @@ it('can get a single vendor', function () {
     $vendor = GetVendorRequest::build()->withId($id)->send()->json();
 
     expect($vendor['id'])->toBe($id);
+});
+
+
+it('can update a vendor', function () {
+
+    $fakeId = 'RPT20000001';
+
+    $vendor = [
+        "lastCall" => "2019-11-12",
+        "nextCall" => "2019-12-29",
+        "typeId" => "S",
+        "sellingReasonId" => "RL",
+        "solicitorId" => "OXF12300101",
+        "source" => [
+          "id" => "OXF",
+          "type" => "office"
+        ],
+        "metadata" => [
+          "CustomField1" => "CustomValue1",
+          "CustomField2" => true
+        ]
+    ];
+
+    $request = UpdateVendorRequest::fake()->withId($fakeId)->withData($vendor)->send();
+
+    expect($request->successful())->toBeTrue();
+
 });

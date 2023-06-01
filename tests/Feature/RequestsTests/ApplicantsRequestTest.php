@@ -1,7 +1,9 @@
 <?php
 
+use TransporterFoundations\Transporter\Requests\Reapit\Applicants\CreateApplicantRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Applicants\GetApplicantRequest;
 use TransporterFoundations\Transporter\Requests\Reapit\Applicants\ListApplicantsRequest;
+use TransporterFoundations\Transporter\Requests\Reapit\Applicants\UpdateApplicantRequest;
 
 it('can send a request to list applicants and get a successful response', function () {
     $reapitRequest = ListApplicantsRequest::build();
@@ -25,5 +27,70 @@ it('can get a single applicant', function () {
     $applicant = GetApplicantRequest::build()->withId($id)->send()->json();
 
     expect($applicant['id'])->toBe($id);
+
+});
+
+it('can create an applicant', function () {
+
+    $faker = fake('en_GB');
+    
+    $applicant = [
+      "marketingMode"=> "buying",
+      "currency"=> "GBP",
+      "active"=> true,
+      "notes"=> "Looking to move his mother back into the area",
+      "statusId"=> null,
+      "sellingStatus"=> "exchanged",
+      "sellingPosition"=> "renting",
+      "lastCall"=> "2019-11-12",
+      "nextCall"=> "2022-12-29",
+      "departmentId"=> "G",
+      "solicitorId"=> "OXF18000012",
+      "potentialClient"=> false,
+      "type"=> [
+        "house",
+        "maisonette",
+        "cottage"
+      ],
+      "related" =>
+        [
+          "associatedId" => "OXF20000001",
+          "associatedType" => "contact"
+        ]
+        ];
+    
+    $request = CreateApplicantRequest::fake()->withData($applicant)->send();
+
+    expect($request->successful())->toBeTrue();
+
+});
+
+it('can update an applicant', function () {
+
+    $fakeId = 'RPT20000001';
+
+    $applicant = [
+        "marketingMode"=> "buying",
+        "currency"=> "GBP",
+        "active"=> true,
+        "notes"=> "Looking to move his mother back into the area",
+        "statusId"=> null,
+        "sellingStatus"=> "exchanged",
+        "sellingPosition"=> "renting",
+        "lastCall"=> "2019-11-12",
+        "nextCall"=> "2022-12-29",
+        "departmentId"=> "G",
+        "solicitorId"=> "OXF18000012",
+        "potentialClient"=> false,
+        "type"=> [
+          "house",
+          "maisonette",
+          "cottage"
+        ],
+      ];
+
+    $request = UpdateApplicantRequest::fake()->withId($fakeId)->withData($applicant)->send();
+
+    expect($request->successful())->toBeTrue();
 
 });
