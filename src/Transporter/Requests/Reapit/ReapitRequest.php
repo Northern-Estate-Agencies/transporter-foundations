@@ -76,9 +76,4 @@ class ReapitRequest extends Request
     {
         return $this->method;
     }
-
-    public function getResponseCode(): int
-    {
-        return 200;
-    }
 }
