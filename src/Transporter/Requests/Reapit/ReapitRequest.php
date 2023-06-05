@@ -66,4 +66,19 @@ class ReapitRequest extends Request
             throw new Exception('Unable to get reapit auth token');
         }
     }
+
+    public function getEndpoint(): string
+    {
+        return $this->path;
+    }
+
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
+
+    public function getResponseCode(): int
+    {
+        return 200;
+    }
 }
