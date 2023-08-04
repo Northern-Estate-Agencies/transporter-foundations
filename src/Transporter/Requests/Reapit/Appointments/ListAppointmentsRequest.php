@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TransporterFoundations\Transporter\Requests\Reapit\Applicants;
+namespace TransporterFoundations\Transporter\Requests\Reapit\Appointments;
 
 use TransporterFoundations\Transporter\Requests\Reapit\ReapitRequest;
 
